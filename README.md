@@ -7,13 +7,13 @@ Suppose a pair of entities defined with the same composite primary key:
 
 ```java
 @Entity
-public class FailingParent {
+public class Parent {
 
     @EmbeddedId
     public Key id;
 
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "parent")
-    public FailingChild child;
+    public Child child;
 
     @Basic
     public String value;
@@ -85,7 +85,7 @@ And passes the *same value* for ```id1```and ```id2```, which is obviously wrong
 Interestingly enough, everything works OK if the mapping of the ```Child``` class is changed as follows (notice the second join column of the parent is renamed):
 ```java
 @Entity
-public class WorkingChild {
+public class Child {
     @EmbeddedId
     public Key id;
 
@@ -95,7 +95,7 @@ public class WorkingChild {
             @JoinColumn(name = "id1", referencedColumnName = "id1"),
             @JoinColumn(name = "renamed_id2", referencedColumnName = "id2")
     })
-    public WorkingParent parent;
+    public Parent parent;
 
     @Basic
     public String value;
