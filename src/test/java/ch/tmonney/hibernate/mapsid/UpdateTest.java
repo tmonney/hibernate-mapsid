@@ -17,12 +17,12 @@ public class UpdateTest extends AbstractTest {
 
         em.getTransaction().begin();
         WorkingParent entity = em.find(WorkingParent.class, new Key(1L, 2L));
-        entity.child.value = "new value";
+        entity.getChild().setValue("new value");
         em.getTransaction().commit();
 
         em.clear();
         entity = em.find(WorkingParent.class, new Key(1L, 2L));
-        assertThat(entity.child.value, is("new value"));
+        assertThat(entity.getChild().getValue(), is("new value"));
         em.getTransaction().begin();
 
     }
@@ -39,7 +39,7 @@ public class UpdateTest extends AbstractTest {
         // and reports an optimistic lock exception since this child does not exist
         em.getTransaction().begin();
         FailingParent entity = em.find(FailingParent.class, new Key(1L, 2L));
-        entity.child.value = "new value";
+        entity.getChild().setValue("new value");
         em.getTransaction().commit();
     }
 }

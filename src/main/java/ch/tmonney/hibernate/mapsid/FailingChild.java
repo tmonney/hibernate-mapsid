@@ -19,8 +19,32 @@ public class FailingChild {
             @JoinColumn(name = "id1", referencedColumnName = "id1"),
             @JoinColumn(name = "id2", referencedColumnName = "id2")
     })
-    public FailingParent parent;
+    private FailingParent parent;
 
     @Basic
-    public String value;
+    private String value;
+
+    public Key getId() {
+        return id;
+    }
+
+    public void setId(Key id) {
+        this.id = id;
+    }
+
+    public FailingParent getParent() {
+        return parent;
+    }
+
+    public void setParent(FailingParent parent) {
+        this.parent = parent;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
 }

@@ -10,11 +10,35 @@ import javax.persistence.OneToOne;
 public class FailingParent {
 
     @EmbeddedId
-    public Key id;
+    private Key id;
 
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "parent")
-    public FailingChild child;
+    private FailingChild child;
 
     @Basic
-    public String value;
+    private String value;
+
+    public Key getId() {
+        return id;
+    }
+
+    public void setId(Key id) {
+        this.id = id;
+    }
+
+    public FailingChild getChild() {
+        return child;
+    }
+
+    public void setChild(FailingChild child) {
+        this.child = child;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
 }

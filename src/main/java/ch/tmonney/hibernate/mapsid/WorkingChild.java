@@ -11,7 +11,7 @@ import javax.persistence.OneToOne;
 @Entity
 public class WorkingChild {
     @EmbeddedId
-    public Key id;
+    private Key id;
 
     @OneToOne
     @MapsId
@@ -19,8 +19,32 @@ public class WorkingChild {
             @JoinColumn(name = "id1", referencedColumnName = "id1"),
             @JoinColumn(name = "renamed_id2", referencedColumnName = "id2")
     })
-    public WorkingParent parent;
+    private WorkingParent parent;
 
     @Basic
-    public String value;
+    private String value;
+
+    public Key getId() {
+        return id;
+    }
+
+    public void setId(Key id) {
+        this.id = id;
+    }
+
+    public WorkingParent getParent() {
+        return parent;
+    }
+
+    public void setParent(WorkingParent parent) {
+        this.parent = parent;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
 }

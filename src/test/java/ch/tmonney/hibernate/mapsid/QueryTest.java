@@ -19,9 +19,9 @@ public class QueryTest extends AbstractTest {
 
         em.getTransaction().begin();
         List<WorkingParent> reloaded = loadEntities(WorkingParent.class);
-        assertThat(reloaded.get(0).child.value, is("child11_1"));
-        assertThat(reloaded.get(1).child.value, is("child12_1"));
-        assertThat(reloaded.get(2).child.value, is("child13_1"));
+        assertThat(reloaded.get(0).getChild().getValue(), is("child11_1"));
+        assertThat(reloaded.get(1).getChild().getValue(), is("child12_1"));
+        assertThat(reloaded.get(2).getChild().getValue(), is("child13_1"));
         em.getTransaction().commit();
     }
 
@@ -33,9 +33,9 @@ public class QueryTest extends AbstractTest {
 
         em.getTransaction().begin();
         List<WorkingParent> reloaded = loadEntities(WorkingParent.class);
-        assertThat(reloaded.get(0).child.value, is("child1_11"));
-        assertThat(reloaded.get(1).child.value, is("child1_12"));
-        assertThat(reloaded.get(2).child.value, is("child1_13"));
+        assertThat(reloaded.get(0).getChild().getValue(), is("child1_11"));
+        assertThat(reloaded.get(1).getChild().getValue(), is("child1_12"));
+        assertThat(reloaded.get(2).getChild().getValue(), is("child1_13"));
         em.getTransaction().commit();
     }
 
@@ -47,9 +47,9 @@ public class QueryTest extends AbstractTest {
 
         em.getTransaction().begin();
         List<FailingParent> reloaded = loadEntities(FailingParent.class);
-        assertThat(reloaded.get(0).child.value, is("child11_1"));
-        assertThat(reloaded.get(1).child.value, is("child12_1"));
-        assertThat(reloaded.get(2).child.value, is("child13_1"));
+        assertThat(reloaded.get(0).getChild().getValue(), is("child11_1"));
+        assertThat(reloaded.get(1).getChild().getValue(), is("child12_1"));
+        assertThat(reloaded.get(2).getChild().getValue(), is("child13_1"));
         em.getTransaction().commit();
     }
 
@@ -61,9 +61,9 @@ public class QueryTest extends AbstractTest {
 
         em.getTransaction().begin();
         List<FailingParent> reloaded = loadEntities(FailingParent.class);
-        assertThat(reloaded.get(0).child.value, is("child1_11"));
-        assertThat(reloaded.get(1).child.value, is("child1_12"));
-        assertThat(reloaded.get(2).child.value, is("child1_13"));
+        assertThat(reloaded.get(0).getChild().getValue(), is("child1_11"));
+        assertThat(reloaded.get(1).getChild().getValue(), is("child1_12"));
+        assertThat(reloaded.get(2).getChild().getValue(), is("child1_13"));
         em.getTransaction().commit();
     }
 
